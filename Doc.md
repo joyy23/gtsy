@@ -4,7 +4,7 @@
 - new users with no related information
 - existed users with some avaliable information
 ### The code is divided into 2 parts:
-- Non-personalized recommendation
+- **`Non-personalized recommendation`**
    - Editorial Content 
      
      This should work, but it's should be done by editors, not programmers
@@ -23,7 +23,21 @@
      
  The reason that why I chose Average ratings instead of Top N is the data is way too little. Apart from User4(new user), we only have 3 other users.
  There is no way to make a Top N ranking based on Feedback dataset for only three data, since there will be a high deviation value and it is not universal.
- The mean rating method    
-- Personalized recommendation
-
-### The dataset is with binary result 
+ 
+ The `mean rating method` considers the mean rating of the all questions, which will makes it more universal relatively.
+ 
+- **`Personalized recommendation`**
+       In this case, it's actually very hard to use item-based or user-based. 
+       
+       The reason is still the size of dataset is way too small.
+       
+       There is very high chance that we can not find any similar user from other two users to one.
+       
+       20 questions are not so few but there are also a lot of categories, very few useful information can be collected if the questions are deviated.
+    - `Content-Based Filtering` 
+       
+       This enables us to relate the user directly to the question and generate user_profile to see users' interest based on 20 questions' reaction.
+     - `IDF`
+         
+         Actually there is not a big difference in the results of recommended questions between IDF and other two methods.
+         But IDF takes the scarcity of some topics into account, and can ensure the data to be in the same scale.
